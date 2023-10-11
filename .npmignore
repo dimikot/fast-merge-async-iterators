@@ -1,0 +1,8 @@
+node_modules
+src
+dist/__tests__
+dist/tsconfig.tsbuildinfo
+jest.config.js
+*.tgz
+tsconfig.json
+yarn-error.log
