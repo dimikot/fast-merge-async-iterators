@@ -27,7 +27,7 @@
     "dev": "tsc --watch",
     "test": "jest",
     "clean": "rm -rf dist node_modules yarn.lock package-lock.json",
-    "deploy": "npm build && npm test && npm publish"
+    "deploy": "npm run build && npm test && npm publish"
   },
   "devDependencies": {
     "@types/jest": "^26.0.3",
