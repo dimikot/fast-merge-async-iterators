@@ -1,5 +1,3 @@
-import { inspect } from "util";
-
 type AsyncIter<T> = AsyncIterator<T> | AsyncIterable<T>;
 
 type Mode = "iters-noclose" | "iters-close-nowait" | "iters-close-wait";
