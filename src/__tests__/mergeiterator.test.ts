@@ -5,7 +5,7 @@ async function sleep(ms: number) {
 }
 
 class Deferred<T> {
-  resolve!: (res?: T) => void;
+  resolve!: (res?: any) => void;
 
   promise = new Promise<T>((resolve) => {
     this.resolve = resolve;

@@ -101,9 +101,9 @@ describe("merge", () => {
 });
 
 function promiseImmediate<T>(data?: T) {
-  return new Promise((resolve) => setImmediate(() => resolve(data))) as Promise<
-    T
-  >;
+  return new Promise<T | undefined>((resolve) =>
+    setImmediate(() => resolve(data))
+  ) as Promise<T>;
 }
 
 interface ReadableStreamish {
@@ -112,7 +112,7 @@ interface ReadableStreamish {
 }
 
 async function onceReadable(stream: ReadableStreamish) {
-  return new Promise((resolve) => {
+  return new Promise<void>((resolve) => {
     stream.once("readable", () => {
       resolve();
     });

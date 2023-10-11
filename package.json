@@ -1,6 +1,6 @@
 {
   "name": "fast-merge-async-iterators",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Merge AsyncIterables with all corner cases covered.",
   "homepage": "https://github.com/dimikot/fast-merge-async-iterators#readme",
   "author": "Dimi Kot",
@@ -33,7 +33,7 @@
     "@types/jest": "^26.0.3",
     "jest": "^26.1.0",
     "ts-jest": "^26.1.1",
-    "typescript": "^3.9.2"
+    "typescript": "^4.8"
   },
   "dependencies": {}
 }

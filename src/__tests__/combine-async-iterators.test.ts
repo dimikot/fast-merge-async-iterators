@@ -45,7 +45,7 @@ test("combineAsyncIterators must close all iterators when it throw", async () =>
     for await (const _value of merge(first, second)) {
       // Do nothing (it throw).
     }
-  } catch (err) {
+  } catch (err: any) {
     expect(err.message).toEqual("oh no!");
     const result = await Promise.all([first.next(), second.next()]);
     expect(result.every((row) => row.done === true)).toBeTruthy();
