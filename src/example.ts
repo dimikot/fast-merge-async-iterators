@@ -1,6 +1,6 @@
 import merge from ".";
 
-async function* iterable(name: string, dt: number) {
+async function* generator(name: string, dt: number) {
   try {
     for (let i = 0; ; i++) {
       console.log(`${name} yielded ${i}`);
@@ -16,7 +16,7 @@ async function* iterable(name: string, dt: number) {
 async function* caller() {
   // JS does a good job of propagating iterator close operation (i.e.
   // calling `.return()` an iterator is used in `yield*` or `for await`).
-  yield* merge("iters-close-wait", iterable("A", 222), iterable("B", 555));
+  yield* merge("iters-close-wait", generator("A", 222), generator("B", 555));
   // Available modes:
   // - "iters-noclose" (does not call inner iterators' `return` method)
   // - "iters-close-nowait" (calls `return`, but doesn't await nor throw)

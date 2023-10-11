@@ -1,9 +1,22 @@
 # fast-merge-async-iterators: merge AsyncIterables with all corner cases covered
 
 The idea is to build a module which _really_ covers all the features of
-AsyncIterator, AsyncIterable, AsyncGenerator and doesn't throw the baby out with
-the bathwater.
+AsyncIterator, AsyncIterable, AsyncGenerator and <a
+href="https://stackoverflow.com/questions/50585456/how-can-i-interleave-merge-async-iterables">doesn't
+throw the baby out with the bathwater</a>.
 
+```ts
+async function* gen1() { ... yield ... }
+async function* gen2() { ... yield ... }
+async function* gen3() { ... yield ... }
+...
+for await (merge(gen1(), gen2(), gen3())) { ... }
+...
+for await (merge("iters-close-wait", gen1(), gen2(), gen3())) { ... }
+```
+
+- Interleaves the values yielded by the inner AsyncIterables as soon as they
+  arrive.
 - Supports exceptions propagation down the stack: if an inner iterator throws,
   then all other iterators will be closed (with or without waiting), and then
   the exception will be delivered to the caller.
@@ -14,12 +27,12 @@ the bathwater.
 
 <a href="https://imgflip.com/i/4d7gwx"><img src="https://i.imgflip.com/4d7gwx.jpg" title="made at imgflip.com"/></a>
 
-## Example
+## Usage Example
 
 ```ts
-import merge from ".";
+import merge from "fast-merge-async-iterators";
 
-async function* iterable(name: string, dt: number) {
+async function* generator(name: string, dt: number) {
   try {
     for (let i = 0; ; i++) {
       console.log(`${name} yielded ${i}`);
@@ -35,7 +48,7 @@ async function* iterable(name: string, dt: number) {
 async function* caller() {
   // JS does a good job of propagating iterator close operation (i.e.
   // calling `.return()` an iterator is used in `yield*` or `for await`).
-  yield* merge("iters-close-wait", iterable("A", 222), iterable("B", 555));
+  yield* merge("iters-close-wait", generator("A", 222), generator("B", 555));
   // Available modes:
   // - "iters-noclose" (does not call inner iterators' `return` method)
   // - "iters-close-nowait" (calls `return`, but doesn't await nor throw)

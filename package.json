@@ -1,6 +1,6 @@
 {
   "name": "fast-merge-async-iterators",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Merge AsyncIterables with all corner cases covered.",
   "homepage": "https://github.com/dimikot/fast-merge-async-iterators#readme",
   "author": "Dimi Kot",
