@@ -1,6 +1,7 @@
 node_modules
 src
 dist/__tests__
+dist/example*
 dist/tsconfig.tsbuildinfo
 jest.config.js
 *.tgz

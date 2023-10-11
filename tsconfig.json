@@ -10,7 +10,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "target": "es6",
+    "target": "ES2018",
     "esModuleInterop": true,
     "noImplicitReturns": true,
     "strict": true

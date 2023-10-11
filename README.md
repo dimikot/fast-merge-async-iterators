@@ -1,7 +1,7 @@
 # fast-merge-async-iterators: merge AsyncIterables with all corner cases covered
 
-The idea is to build a module which _really_ covers all the features of
-AsyncIterator, AsyncIterable, AsyncGenerator and <a
+The idea is to build a ES2018+ compatible module which _really_ covers all the
+features of AsyncIterator, AsyncIterable, AsyncGenerator and <a
 href="https://stackoverflow.com/questions/50585456/how-can-i-interleave-merge-async-iterables">doesn't
 throw the baby out with the bathwater</a>.
 
