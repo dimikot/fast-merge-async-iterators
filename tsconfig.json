@@ -11,6 +11,7 @@
     "declaration": true,
     "declarationMap": true,
     "target": "ES2018",
+    "lib": ["ES2021.WeakRef"],
     "esModuleInterop": true,
     "noImplicitReturns": true,
     "strict": true

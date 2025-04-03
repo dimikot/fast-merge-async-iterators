@@ -1,3 +1,4 @@
+// Test suite from combine-async-iterators library.
 import merge from "../index";
 
 const FIX = [

@@ -1,6 +1,6 @@
 {
   "name": "fast-merge-async-iterators",
-  "version": "1.0.7",
+  "version": "1.1.1",
   "description": "Merge AsyncIterables with all corner cases covered.",
   "homepage": "https://github.com/dimikot/fast-merge-async-iterators#readme",
   "author": "Dimi Kot",
@@ -25,11 +25,12 @@
   "scripts": {
     "build": "tsc",
     "dev": "tsc --watch",
-    "test": "jest",
-    "clean": "rm -rf dist node_modules yarn.lock package-lock.json",
+    "test": "node --expose-gc node_modules/jest/bin/jest.js",
+    "clean": "rm -rf dist node_modules yarn.lock package-lock.json pnpm-lock.yaml",
     "deploy": "npm run build && npm test && npm publish"
   },
   "devDependencies": {
+    "@types/node": "^20",
     "@types/jest": "^26.0.3",
     "jest": "^26.1.0",
     "ts-jest": "^26.1.1",

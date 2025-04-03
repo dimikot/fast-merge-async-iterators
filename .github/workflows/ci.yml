@@ -1,0 +1,30 @@
+name: CI Full Run
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+      - grok/*/*
+  push:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8
+      - run: |
+          exec 2>&1; set -e -o pipefail
+          pnpm install
+          pnpm build
+          pnpm test
+          node dist/example
+          node dist/example-bench

@@ -1,3 +1,4 @@
+// Test suite from streaming-iterables library.
 import merge from "../index";
 import { PassThrough } from "stream";
 

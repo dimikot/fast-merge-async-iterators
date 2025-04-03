@@ -1,5 +1,12 @@
 dist
+
+# Common in both .gitignore and .npmignore
+*.tgz
 node_modules
-yarn-error.log
 yarn.lock
+pnpm-lock.yaml
 package-lock.json
+.DS_Store
+*.log
+*.tmp
+*.swp

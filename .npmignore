@@ -1,9 +1,15 @@
-node_modules
-src
 dist/__tests__
-dist/example*
-dist/tsconfig.tsbuildinfo
-jest.config.js
+dist/**/__tests__
+dist/*.tsbuildinfo
+.npmrc
+
+# Common in both .gitignore and .npmignore
 *.tgz
-tsconfig.json
-yarn-error.log
+node_modules
+yarn.lock
+pnpm-lock.yaml
+package-lock.json
+.DS_Store
+*.log
+*.tmp
+*.swp
