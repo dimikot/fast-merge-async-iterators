@@ -1,3 +1,5 @@
+// Test suite from mergeiterator library.
+
 import merge from "../index";
 
 async function sleep(ms: number) {

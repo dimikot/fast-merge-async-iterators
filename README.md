@@ -1,5 +1,7 @@
 # fast-merge-async-iterators: merge AsyncIterables with all corner cases covered
 
+![CI run](https://github.com/dimikot/fast-merge-async-iterators/actions/workflows/ci.yml/badge.svg?branch=master)
+
 The idea is to build a ES2018+ compatible module which _really_ covers all the
 features of AsyncIterator, AsyncIterable, AsyncGenerator and <a
 href="https://stackoverflow.com/questions/50585456/how-can-i-interleave-merge-async-iterables">doesn't
@@ -17,10 +19,13 @@ for await (merge("iters-close-wait", gen1(), gen2(), gen3())) { ... }
 
 - Interleaves the values yielded by the inner AsyncIterables as soon as they
   arrive.
+- Ensures fair distribution of the yielded values and absence of iterators
+  starvation.
 - Supports exceptions propagation down the stack: if an inner iterator throws,
   then all other iterators will be closed (with or without waiting), and then
   the exception will be delivered to the caller.
-- Works fast and with no <a href="https://github.com/nodejs/node/issues/17469">memory leak in Promise.race()</a>.
+- Works with no <a href="https://github.com/nodejs/node/issues/17469">memory
+  leak in Promise.race()</a>.
 - Closes merging iterators correctly once the caller stops iterating the merged
   iterator: calls `.return()` for them which effectively triggers all their
   `finally {}` blocks.

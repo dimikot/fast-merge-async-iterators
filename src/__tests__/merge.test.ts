@@ -1,4 +1,6 @@
+import { randomBytes } from "crypto";
 import merge from "../index";
+import { sleep } from "./internal/sleep";
 
 test("one iterator failure propagates return to others", async () => {
   const log: string[] = [];
@@ -161,7 +163,3 @@ test("inner iterator throws during closing in iters-close-wait mode", async () =
     expect(e).toEqual("first: I failed");
   }
 });
-
-async function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
